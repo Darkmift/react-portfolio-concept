@@ -1,0 +1,34 @@
+// SETUP
+@import './styles/reset';
+@import './styles/variables';
+// @import 'typography';
+
+// BASICS
+@import './styles/base';
+@import './styles/flex';
+
+body,
+html {
+  font-size: 1.3em;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  @extend .main-border;
+  padding: $mainPad;
+  box-shadow: 3px 3px 0px 0px #000000;
+  line-height: 1;
+  &:active {
+    box-shadow: none;
+  }
+}

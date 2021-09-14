@@ -1,0 +1,16 @@
+@import './styles/variables';
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  font-family: 'RobotoMono-Medium', monospace;
+  line-height: 1.6;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: $clr5;
+  color: $clr1;
+}
