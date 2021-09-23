@@ -1,12 +1,17 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-
-import './index.scss';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import App from './App';
+
+import { injectGlobal, ThemeProvider, theme } from "./theme/index";
+injectGlobal`
+    * { margin: 0; padding: 0; }
+`;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );

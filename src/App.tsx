@@ -1,10 +1,9 @@
-import React, { FunctionComponent } from "react";
-import './App.scss';
+import React from 'react';
 
-const App: FunctionComponent = () => {
+const App: React.FunctionComponent = (): JSX.Element => {
   return (
-    <div className="app">
-      <h1>APP</h1>
+    <div className="App">
+      Hi
     </div>
   );
 }
