@@ -8,14 +8,13 @@ const useTheme = (): [DefaultTheme, React.MouseEventHandler<HTMLDivElement>, boo
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleTheme = (): void => {
-    const newTheme = isDarkTheme ? lightTheme : darkTheme;
-    setTheme(newTheme);
     setIsDarkTheme((prevValue) => !prevValue);
   };
-  
+
   useEffect(() => {
-    toggleTheme();
-  }, []);
+    const newTheme = isDarkTheme ? lightTheme : darkTheme;
+    setTheme(newTheme);
+  }, [isDarkTheme]);
 
   return [theme, toggleTheme, isDarkTheme];
 };
