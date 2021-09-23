@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const switchHeight = '4rem';
 const switchSize = '2rem';
-const postText = "Dark  ";
 
 const SwitchWrapper = styled.div`
 
