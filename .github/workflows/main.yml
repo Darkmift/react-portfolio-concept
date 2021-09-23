@@ -36,7 +36,7 @@ jobs:
       - name: Build Page
         run: npm run build
       - name: Deploy to gh-pages
-        uses: darkmift/react-portfolio-concept@main
+        uses: darkmift/react-portfolio-concept@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./build
