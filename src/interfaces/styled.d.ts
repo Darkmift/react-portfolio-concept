@@ -1,14 +1,20 @@
-// import original module declarations
-import * as styledComponents from 'styled-components';
+// styled.d.ts
+import 'styled-components';
+interface IPalette {
+  main: string
+  contrastText: string
+}
 
-// and extend them!
 declare module 'styled-components' {
   export interface DefaultTheme {
-    borderRadius: string;
-
-    colors: {
-      main: string;
-      secondary: string;
-    };
+    borderRadius: string
+    palette: {
+      common: {
+        black: string
+        white: string
+      }
+      primary: IPalette
+      secondary: IPalette
+    }
   }
 }

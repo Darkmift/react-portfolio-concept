@@ -2,14 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
-import { injectGlobal, ThemeProvider, theme } from "./theme/index";
-injectGlobal`
-    * { margin: 0; padding: 0; }
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { defaultTheme } from './theme'
+// theme is also fully typed
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${props => props.theme.palette.primary.main};
+  }
 `;
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
+      <GlobalStyle />
       <App />
     </ThemeProvider>
   </React.StrictMode>,
