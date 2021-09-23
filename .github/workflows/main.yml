@@ -26,7 +26,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v2
       - name: UseNode.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -36,7 +36,7 @@ jobs:
       - name: Build Page
         run: npm run build
       - name: Deploy to gh-pages
-        uses: darkmift/react-portfolio-concept@v3
+        uses: darkmift/react-portfolio-concept@latest
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./build
