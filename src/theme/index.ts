@@ -1,9 +1,14 @@
 // theme.ts
 import { DefaultTheme } from 'styled-components';
 export const lightTheme: DefaultTheme = {
-  about: {
+  main: {
     main: '#176583',
-    contrastText: '#FFFDFF',
+    contrastText: '#F7FCFE',
+    textShadow: '#6E7480',
+  },
+  pages: {
+    main: '#F29188',
+    contrastText: '#F7FCFE',
     textShadow: '#6E7480',
   },
   secondary: {
@@ -17,9 +22,14 @@ export const lightTheme: DefaultTheme = {
 };
 
 export const darkTheme: DefaultTheme = {
-  about: {
+  main: {
     main: '#080027',
-    contrastText: '#FFFEF9',
+    contrastText: '#FFFEFD',
+    textShadow: '#1A064D',
+  },
+  pages: {
+    main: '#630095',
+    contrastText: '#FFFEFD',
     textShadow: '#1A064D',
   },
   secondary: {

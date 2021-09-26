@@ -12,7 +12,8 @@ interface ViewPalette {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    about: ViewPalette
+    main: ViewPalette
+    pages: ViewPalette
     secondary: IPalette
     appBar: IPalette
   }

@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
-enum VARIANT {
-  PRIMARY,
-  SECONDARY
-}
 interface IProps {
-  variant?: VARIANT
+
 }
 
 const AppBar = styled.div<IProps>`
