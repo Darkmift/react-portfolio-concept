@@ -1,12 +1,9 @@
 import React from 'react';
-import AppBar from './components/AppBar';
-import Switch from './components/UI/Switch';
-import Container from './components/UI/Container';
-import { useTheme } from './hooks/useTheme';
 
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import Logo from './components/UI/Logo';
+import { useTheme } from './hooks/useTheme';
 
+import AppNav from './components/AppNav'
 // theme is also fully typed
 const GlobalStyle = createGlobalStyle`
   *{
@@ -26,21 +23,14 @@ const GlobalStyle = createGlobalStyle`
 const App: React.FunctionComponent = (): JSX.Element => {
 
   const [theme, toggleTheme, isDarkTheme] = useTheme()
-
-  const onThemeChange = toggleTheme;
+  const onThemeChange = toggleTheme
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Container className="App" justifyContent="" alignItems="flex-start">
-        <AppBar>
-          <Logo />
-          <Switch
-            isOn={isDarkTheme}
-            handleToggle={onThemeChange}
-          />
-        </AppBar>
-      </Container>
+      <AppNav
+        onThemeChange={onThemeChange}
+        isDarkTheme={isDarkTheme} />
     </ThemeProvider>
   );
 }
