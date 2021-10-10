@@ -4,29 +4,31 @@ import Container from '../UI/Container';
 import svgBg from '../../assets/images/blob.svg';
 
 import { FileTextOutlined, LinkedinFilled, GithubOutlined } from '@ant-design/icons';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
-interface AboutProps {
-
+interface MainProps {
 }
 
-const ContentMain = styled.div`
+interface StyledProps {
+  windowWidth?: number;
+}
+
+const ContentMain = styled.div<StyledProps>`
   display:flex;
   flex-direction: column;
   align-items: center;
   background-image: ${svgBg};
   flex:3;
-  img{
-    position: absolute;
-    z-index: 1;
-    width: 50%; 
-    margin: auto;
-    z-index: 1;
-  }
+  ${props => {
+    const { windowWidth = 0 } = props
+    return `${windowWidth < 1100 ? 'height:20vh' : ''};`
+  }}
+  max-height: 40vh;
   .wrapper{
-    position: absolute;
-    width: 100%;
+    background-image: url(${svgBg});
+    background-repeat:no-repeat;
+    background-position: center center;
     min-height: 60vh; 
-    z-index: 10;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -43,7 +45,6 @@ const ContentMain = styled.div`
     const { textShadow } = props.theme.main
     return `text-shadow:3px 6px 0px ${textShadow};`
   }}
-        /* text-shadow: 3px 6px 0px rgba(22, 0, 83, 1); */
       }
       p{
         font-size:2.5rem;
@@ -67,22 +68,29 @@ const ContentMain = styled.div`
   }
 `
 
-const Socials = styled.div`
+const Socials = styled.div<StyledProps>`
   display: flex;
-  justify-content:space-around;
+  /* justify-content:space-around; */
   align-items: center;
   flex:1;
-  height: 60vh;
+  gap:0 5vmin;
+  padding-right: 5vmin;
+
+  ${props => {
+    const { windowWidth = 0 } = props
+    return `height: ${windowWidth > 1100 ? '60vh' : '20vh'};
+    justify-content: ${windowWidth > 1100 ? 'space-around' : 'center'};`
+  }}
 `
 
 
-const Main = (props: AboutProps): JSX.Element => {
-
+const Main = (props: MainProps): JSX.Element => {
+  const [width /*, height*/] = useWindowSize()
+  const flexDirection = width < 1100 ? 'column' : 'row'
   return (
-    <Container flexDirection="row" className="main-page page" justifyContent="space-between">
+    <Container flexDirection={flexDirection} className="main-page page" justifyContent="space-between" alignItems="center">
       <div data-scroll-to="main" style={{ visibility: 'hidden' }} />
-      <ContentMain className="main-section">
-        <img src={svgBg} alt="svgbg" />
+      <ContentMain className="main-section" windowWidth={width}>
         <div className="wrapper">
           <div className="content">
             <h1>Coderz Workouts</h1>
@@ -91,7 +99,7 @@ const Main = (props: AboutProps): JSX.Element => {
           </div>
         </div>
       </ContentMain>
-      <Socials className="socials">
+      <Socials className="socials" windowWidth={width}>
         <FileTextOutlined style={{ fontSize: '4rem' }} />
         <GithubOutlined style={{ fontSize: '4rem' }} />
         <LinkedinFilled style={{ fontSize: '4rem' }} />

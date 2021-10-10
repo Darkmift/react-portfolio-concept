@@ -59,8 +59,8 @@ const App: React.FunctionComponent = (): JSX.Element => {
       {/* PAGES */}
       <Main />
       <About />
-      <Contact />
       <Project />
+      <Contact />
 
     </ThemeProvider>
   );
