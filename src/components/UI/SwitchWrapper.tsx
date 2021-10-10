@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const switchHeight = '4rem';
-const switchSize = '2rem';
+const switchHeight = '3rem';
+const switchSize = '1.5rem';
 
 const SwitchWrapper = styled.div`
 
@@ -9,10 +9,8 @@ const SwitchWrapper = styled.div`
     position: relative;
     width: ${switchHeight};
     height: ${switchSize};
-    /* border-radius: 10%; */
     transition: background-color 100ms ease-out;
     z-index: 1;
-    padding-right:10px;
     &:before,
     &:after{
       content: '';
@@ -26,30 +24,18 @@ const SwitchWrapper = styled.div`
     }
 
     &:before {
-      left: -1rem;
+      left: -0.6rem;
     }
     &:after {
-      right: -1rem;
+      right: -0.6rem;
     }
 
     &.switch_is-off {
       background-color: #61039A;
-      /* &:after{
-        text-align:left;
-        content: 'Dark';
-        white-space: pre;
-        line-height:${switchSize};
-      } */
     }
     
     &.switch_is-on {
       background-color: #E8958D;
-      /* &:before{
-        text-align:right;
-        line-height:${switchSize};
-        content:'  Light';
-        white-space: pre;
-      } */
     }
 
     .toggle-button {
@@ -63,29 +49,28 @@ const SwitchWrapper = styled.div`
       border: 0.08 solid #353535;
       top: -0.08;
       &.toggle-button_position-left {
-        transform: translateX(-1rem)
+        transform: translateX(-0.8rem)
       }
     
       &.toggle-button_position-right {
-        transform: translateX(3rem)
+        transform: translateX(2.5rem)
       }
     }
 
     .switch-label{
       position: absolute;
       top: -0.08;
-      line-height:2.2rem;
+      line-height:1.5rem;
       z-index: 3;
       font-size: 0.75rem;
       &.toggle-button_position-left {
 
         color:#ccc;
-        transform: translateX(1.5rem)
+        transform: translateX(1rem)
       }
     
       &.toggle-button_position-right {
         color:#3b3a3a;
-        transform: translateX(-0.5rem)
       }
     }
 

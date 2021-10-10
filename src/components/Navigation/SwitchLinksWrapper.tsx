@@ -10,12 +10,13 @@ const SwitchLinksWrapper = styled.div<IProps>`
     min-width: 35%;  
     ul{
         display: flex;  
-        padding: 5vw;
+        padding: 0 5vw;
       li {
         list-style: none;
         text-decoration: none;
-        padding: 10px;
-        font-size: 2rem;
+        padding: 0 10px;
+        font-size: 1.75rem;
+        margin-bottom: 3px;
       }
     }
 `

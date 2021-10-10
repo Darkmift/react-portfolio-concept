@@ -5,6 +5,7 @@ export const lightTheme: DefaultTheme = {
     main: '#176583',
     contrastText: '#F7FCFE',
     textShadow: '#6E7480',
+    button: '#E99589',
   },
   pages: {
     main: '#F29188',
@@ -18,7 +19,7 @@ export const lightTheme: DefaultTheme = {
   appBar: {
     main: '#0C4459',
     contrastText: '#EBFFFF',
-  }
+  },
 };
 
 export const darkTheme: DefaultTheme = {
@@ -26,6 +27,7 @@ export const darkTheme: DefaultTheme = {
     main: '#080027',
     contrastText: '#FFFEFD',
     textShadow: '#1A064D',
+    button: '#630095',
   },
   pages: {
     main: '#630095',
