@@ -5,7 +5,7 @@ import svgBg from '../../assets/images/blob.svg';
 
 import Socials from '../Socials';
 import { useWindowSize } from '../../hooks/useWindowSize';
-
+import { scrollTo } from '../../utils/scrollTo'
 interface MainProps {
 }
 
@@ -80,7 +80,7 @@ const Main = (props: MainProps): JSX.Element => {
           <div className="content">
             <h1>Coderz Workouts</h1>
             <p>Level Up Your Skills</p>
-            <button>About me</button>
+            <button onClick={() => scrollTo({ elName: 'about' })}>About me</button>
           </div>
         </div>
       </ContentMain>
