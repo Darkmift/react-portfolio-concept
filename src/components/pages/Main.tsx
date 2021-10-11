@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Container from '../UI/Container';
 import svgBg from '../../assets/images/blob.svg';
 
+import Socials from '../Socials'
+
 import { FileTextOutlined, LinkedinFilled, GithubOutlined } from '@ant-design/icons';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
@@ -18,6 +20,7 @@ const ContentMain = styled.div<StyledProps>`
   flex-direction: column;
   align-items: center;
   background-image: ${svgBg};
+  background-size: cover;
   flex:3;
   ${props => {
     const { windowWidth = 0 } = props
@@ -68,22 +71,6 @@ const ContentMain = styled.div<StyledProps>`
   }
 `
 
-const Socials = styled.div<StyledProps>`
-  display: flex;
-  /* justify-content:space-around; */
-  align-items: center;
-  flex:1;
-  gap:0 5vmin;
-  padding-right: 5vmin;
-
-  ${props => {
-    const { windowWidth = 0 } = props
-    return `height: ${windowWidth > 1100 ? '60vh' : '20vh'};
-    justify-content: ${windowWidth > 1100 ? 'space-around' : 'center'};`
-  }}
-`
-
-
 const Main = (props: MainProps): JSX.Element => {
   const [width /*, height*/] = useWindowSize()
   const flexDirection = width < 1100 ? 'column' : 'row'
@@ -99,11 +86,7 @@ const Main = (props: MainProps): JSX.Element => {
           </div>
         </div>
       </ContentMain>
-      <Socials className="socials" windowWidth={width}>
-        <FileTextOutlined style={{ fontSize: '4rem' }} />
-        <GithubOutlined style={{ fontSize: '4rem' }} />
-        <LinkedinFilled style={{ fontSize: '4rem' }} />
-      </Socials>
+      <Socials />
     </Container>
   )
 }

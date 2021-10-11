@@ -35,7 +35,7 @@ export const darkTheme: DefaultTheme = {
     textShadow: '#1A064D',
   },
   secondary: {
-    main: '#709fb0',
+    main: '#630095',
     contrastText: '#ffffff',
   },
   appBar: {
