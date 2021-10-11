@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import Container from '../UI/Container';
 import svgBg from '../../assets/images/blob.svg';
 
-import Socials from '../Socials'
-
-import { FileTextOutlined, LinkedinFilled, GithubOutlined } from '@ant-design/icons';
+import Socials from '../Socials';
 import { useWindowSize } from '../../hooks/useWindowSize';
 
 interface MainProps {

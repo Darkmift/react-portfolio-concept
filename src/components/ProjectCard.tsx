@@ -1,7 +1,9 @@
 import styled from 'styled-components';
-import AlonDaMaster from '../assets/images/alon.jpg';
 interface ProjectCardProps {
-
+  key: number,
+  name: string,
+  avatar: string,
+  htmlUrl: string
 }
 interface StyledProps {
 
@@ -27,7 +29,9 @@ const CardWrapper = styled.div<StyledProps>`
   p{
     padding: 4vmin 2vmin 2vmin;
   }
-  button{
+  a{
+    text-align: center;
+    text-decoration: none;
     ${props => {
     const { main } = props.theme.secondary
     return `background-color:${main};`
@@ -47,15 +51,11 @@ const ProjectCard = (props: ProjectCardProps): JSX.Element => {
 
   return (
     <CardWrapper>
-      <img src={AlonDaMaster} alt="alon is a great guy who helps people" />
+      <img src={props.avatar} alt="alon is a great guy who helps people" />
       <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Neque nulla, ducimus sit accusamus saepe obcaecati hic,
-        cum cumque totam sed,
-        odio illo provident iste.
-        Eveniet exercitationem magnam unde quia molestias?
+        {props.name.toLocaleUpperCase()}
       </p>
-      <button>View Here</button>
+      <a href={props.htmlUrl} target="_blank" rel="noreferrer">View Here</a>
     </CardWrapper>
   )
 }
