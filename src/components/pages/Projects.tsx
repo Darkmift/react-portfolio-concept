@@ -106,18 +106,28 @@ const getRepoTotal = async (): Promise<number> => {
 
 const Projects = (props: ProjectProps): JSX.Element => {
   const [repos, setRepos] = useState<Repo[]>([]);
-  const [paginationData, setPaginationData] = useState<PaginationData>({ perPage: 12, page: 0, total: 0 });
+  const [paginationData, setPaginationData] = useState<PaginationData>({ perPage: 12, page: 1, total: 0 });
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    setIsLoading(true)
     getRepoTotal().then((totalReposCount) => {
       setPaginationData((prevState) => ({ ...prevState, total: totalReposCount }))
+    }).catch((error) => {
+      console.log("🚀 ~ file: Projects.tsx ~ line 118 ~ getRepoTotal ~ error", error)
+      setIsLoading(false)
     })
   }, [])
   useEffect(() => {
+    setIsLoading(true)
     getRepos(paginationData).then(repos => {
       console.log("🚀 ~ file: Projects.tsx ~ line 57 ~ getRepos ~ repos", repos)
 
       setRepos(repos)
+      setIsLoading(false)
+    }).catch((error) => {
+      console.log("🚀 ~ file: Projects.tsx ~ line 118 ~ getRepoTotal ~ error", error)
+      setIsLoading(false)
     })
   }, [paginationData])
 
@@ -133,9 +143,9 @@ const Projects = (props: ProjectProps): JSX.Element => {
         <h1>Projects</h1>
         <Pagination simple onChange={setPagination} className="pagination-custom" current={paginationData.page} total={paginationData.total || 0} />
         <div className="card-container">
-          {repos.map(({ id, name, html_url, owner: { avatar_url } }) => <ProjectCard key={id} htmlUrl={html_url} name={name} avatar={avatar_url} />)}
+          {isLoading ? <h1>Fetching Stuff...please stand by</h1> : repos.map(({ id, name, html_url, owner: { avatar_url } }) => <ProjectCard key={id} htmlUrl={html_url} name={name} avatar={avatar_url} />)}
         </div>
-        <Pagination onChange={setPagination} className="pagination-custom" current={paginationData.page} total={paginationData.total || 0} />
+        <Pagination simple onChange={setPagination} className="pagination-custom" current={paginationData.page} total={paginationData.total || 0} />
       </ContentMain>
     </Container>
   )

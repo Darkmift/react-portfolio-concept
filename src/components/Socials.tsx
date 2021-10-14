@@ -30,11 +30,17 @@ const Socials = styled.div<StyledProps>`
 
 const Main = (props: MainProps): JSX.Element => {
   const [width /*, height*/] = useWindowSize()
+  const sendTo = (pageUrl: string): void => {
+    console.log("🚀 ~ file: Socials.tsx ~ line 34 ~ sendTo ~ pageName", pageUrl)
+    window.open(pageUrl, '_blank');
+
+  }
+
   return (
     <Socials className="socials" windowWidth={width}>
-      <FileTextOutlined style={{ fontSize: props.fontSize || '4rem' }} />
-      <GithubOutlined style={{ fontSize: props.fontSize || '4rem' }} />
-      <LinkedinFilled style={{ fontSize: props.fontSize || '4rem' }} />
+      <FileTextOutlined style={{ fontSize: props.fontSize || '4rem' }} onClick={() => sendTo('https://drive.google.com/file/d/1MuVuDjcf05NKIaGCkz5pv8ppJn7lL4vq/view?usp=sharing')} />
+      <GithubOutlined style={{ fontSize: props.fontSize || '4rem' }} onClick={() => sendTo('https://github.com/Darkmift')} />
+      <LinkedinFilled style={{ fontSize: props.fontSize || '4rem' }} onClick={() => sendTo('https://www.linkedin.com/in/avi-koenig-67159620b/')} />
     </Socials>
   )
 }

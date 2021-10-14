@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Container from '../UI/Container';
-import AlonDaMaster from '../../assets/images/alon.jpg';
+import Mee from '../../assets/images/Me.jpg';
+// import AlonDaMaster from '../../assets/images/alon.jpg';
 
 const ContentMain = styled.div`
   display:flex;
@@ -49,10 +50,12 @@ const About = (props: AboutProps): JSX.Element => {
       <ContentMain>
         <h1>About</h1>
         <div className="wrapper">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Tempora rerum aspernatur qui! Ullam distinctio labore libero sapiente sit quod,
-            totam maxime voluptate est laborum, blanditiis excepturi debitis vero eius nulla!</p>
-          <img src={AlonDaMaster} alt="alon is a great guy who helps people" />
+          <p>
+            <i>Some guy with a keyboard,loves booping said keyboard... all day,most days.
+              <br />      <br />
+              Might aswell boop keyboard for you!</i>
+          </p>
+          <img src={Mee/**AlonDaMaster */} alt="alon is a great guy who helps people" />
         </div>
       </ContentMain>
     </Container>
