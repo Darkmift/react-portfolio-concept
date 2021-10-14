@@ -3,7 +3,13 @@ import Container from '../UI/Container';
 import Mee from '../../assets/images/Me.jpg';
 // import AlonDaMaster from '../../assets/images/alon.jpg';
 
-const ContentMain = styled.div`
+import { useWindowSize } from '../../hooks/useWindowSize';
+
+interface StyledProps {
+  windowWidth?: number;
+}
+
+const ContentMain = styled.div<StyledProps>`
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -23,6 +29,26 @@ const ContentMain = styled.div`
     min-height: 40vh; 
     display:flex;
     flex-direction: row;
+
+    img{
+      border-radius:50%;
+      width:22.5vw;
+    }
+
+    ${props => {
+    const { windowWidth = 0 } = props
+    const smallScreen = windowWidth < 1100;
+    if (smallScreen) {
+      return `
+      flex-direction:column-reverse;
+      img{
+        padding:4vmin;
+        width:40vw;
+      }
+      `
+    }
+    return ``
+  }}
     align-items: center;
     justify-content: space-around;
 
@@ -32,10 +58,6 @@ const ContentMain = styled.div`
       max-width:60%;
       word-wrap: break-word;
     }
-    img{
-      border-radius:50%;
-      max-width:20%;
-    }
   }
 `
 
@@ -43,11 +65,12 @@ interface AboutProps {
 }
 
 const About = (props: AboutProps): JSX.Element => {
-
+  const [width /*, height*/] = useWindowSize()
+  const flexDirection = width < 1100 ? 'column' : 'row'
   return (
     <Container className="about-page page" justifyContent="" alignItems="flex-start">
       <div data-scroll-to="about" style={{ visibility: 'hidden' }} />
-      <ContentMain>
+      <ContentMain windowWidth={width}>
         <h1>About</h1>
         <div className="wrapper">
           <p>

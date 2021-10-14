@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
 interface IProps {
+  show: Boolean;
 }
+
 
 const SwitchLinksWrapper = styled.div<IProps>`
     display: flex;
@@ -19,6 +21,34 @@ const SwitchLinksWrapper = styled.div<IProps>`
         margin-bottom: 3px;
       }
     }
+
+  @media (max-width: 700px) {
+    display:flex;
+    &.hidden{
+      display:none;
+    }
+    ${props => {
+    console.log("🚀 ~ file: SwitchLinksWrapper.tsx ~ line 28 ~ @media ~ props", props.show)
+    return `visibility:${props.show ? 'visible' : 'hidden'};`
+  }}
+
+
+      flex-direction: column;
+      position: absolute;
+      right: 0;
+      top:88px;
+      padding:20px 0;
+      ${props => `
+        color: ${props.theme.appBar.contrastText};
+        background-color: ${props.theme.appBar.main};
+     `}
+      ul{
+        flex-direction: column;
+        li{
+          padding-bottom: 20px;
+        }
+      }
+  }
 `
 
 export default SwitchLinksWrapper;
