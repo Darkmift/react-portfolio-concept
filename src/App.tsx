@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { useTheme } from './hooks/useTheme'
@@ -8,7 +8,6 @@ import Main from './components/pages/Main'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 import Project from './components/pages/Projects'
-
 
 
 
@@ -47,6 +46,8 @@ const App: React.FunctionComponent = (): JSX.Element => {
 
   const [theme, toggleTheme, isDarkTheme] = useTheme()
   const onThemeChange = toggleTheme
+
+  useEffect(() => { document.title = 'AEK' }, [])
 
   return (
     <ThemeProvider theme={theme}>

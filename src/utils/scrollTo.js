@@ -16,7 +16,7 @@ export const scrollTo = ({ elName, ref = null, duration = 1500 }) => {
   // if the reference is data-attr
   if (elName) {
     const element = document.querySelector(`[data-scroll-to='${elName}']`);
-
+    document.title = elName.toLocaleUpperCase();
     if (!element) {
       // log error if the reference passed is invalid
       logError();
